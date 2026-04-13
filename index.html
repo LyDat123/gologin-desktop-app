@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>GoLogin Desktop</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <h1>GoLogin Desktop App</h1>
+  <p class="muted">Quản lý token, folder, profile, run/stop profile.</p>
+
+  <div class="card">
+    <h2>1. Token</h2>
+    <div class="row">
+      <label for="token">GoLogin Token:</label><br />
+      <input
+        type="password"
+        id="token"
+        placeholder="Nhập token tại đây"
+        style="width: 500px;"
+      />
+      <button onclick="loadFolders()" id="loadFoldersBtn">Tải folder</button>
+      <button onclick="loadProfiles()" id="loadBtn">Tải profile</button>
+    </div>
+    <p id="result"></p>
+  </div>
+
+  <div class="card">
+    <h2>2. Folder</h2>
+
+    <div class="row">
+      <input type="text" id="newFolderName" placeholder="Nhập tên folder mới" />
+      <button onclick="createFolder()" id="createFolderBtn">Tạo folder</button>
+    </div>
+
+    <div class="row">
+      <strong>Danh sách folder</strong>
+      <div id="folderList" class="muted">Chưa tải folder</div>
+    </div>
+  </div>
+
+  <div class="card">
+    <h2>3. Tạo profile mới</h2>
+
+    <div class="row">
+      <input type="text" id="newProfileName" placeholder="Nhập tên profile mới" />
+    </div>
+
+    <div class="row">
+      <label for="folderSelect">Chọn folder:</label><br />
+      <select id="folderSelect">
+        <option value="">Không chọn folder</option>
+      </select>
+    </div>
+
+    <div class="row">
+      <button onclick="createProfile()" id="createProfileBtn">Tạo profile</button>
+    </div>
+  </div>
+
+  <div class="card" id="browserSection" style="display: none;">
+    <h2>4. Browser đang chạy</h2>
+    <button onclick="openBrowser()">Mở browser</button>
+    <p id="browserUrl" class="muted"></p>
+  </div>
+
+  <div class="card">
+    <h2>5. Danh sách profile</h2>
+    <div id="profileList"></div>
+  </div>
+
+  <script src="renderer.js"></script>
+</body>
+</html>
